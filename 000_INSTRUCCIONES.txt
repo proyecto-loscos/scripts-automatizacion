@@ -1,0 +1,39 @@
+¡¡¡¡IMPORTANTE!!!! Los scripts que están en esta carpeta están pensados para ejecutarlos desde la máquina DC-1.
+
+ = usuarios.csv =
+En este archivo recogemos datos de los usuarios que queremos añadir de manera automática.
+Incluimos su nombre, apellidos, contraseña, grupo y nombre de usuario.
+
+ = variables.ps1 =
+En este archivo recogemos los datos de las variables que vamos a ejecutar en los scripts.
+
+ = 00_Crear_Estructura =
+Este script crea la estructura de carpetas para cada departamento de FUERA DE LA UNI.
+Crea una carpeta de recursos (r-departamento) y una para los usuarios (u-departamento) siendo departamento el nombre de cada departamento. Por ejemplo: Administrativos.
+Una vez creadas las carpetas, las comparte con los usuarios del dominio.
+
+ = 01_1_Modelo_Cuotas =
+Este script crea las plantillas que se aplicarán en las carpetas que creamos anteriormente.
+
+ =  02_1_Crea_un_grupo =
+Este script aplica las plantillas creadas en el script anterior sobre las carpetas creadas anteriormente.
+
+ = 02_1_Crea_un_grupo =
+Este script crea un único grupo dentro de la Unidad Organizativa y asigna permisos en la carpeta de recursos.
+Para utilizarlo, escribimos el nombre del script en PowerShell ISE y a continuación el nombre del grupo
+Ejemplo: .\02_Crea_un_grupo.ps1 GrupoDePrueba
+
+ = 02_2_Crea_grupos =
+Este script crea grupos de manera automática y asigna permisos en la carpeta de recursos.
+Recoge los datos del archivo "usuarios.csv".
+Saltará un error, pues el grupo "Administradores" ya existe.
+
+ = 03_1_Crea_un_usuario =
+Este script crea un único usuario y le asigna permisos en su carpeta personal.
+Para utilizarlo, escribimos el nombre del script en PowerShell ISE y a continuación el nombre de usuario, grupo, nombre, apellido y contraseña.
+Ejemplo: .\03_1_Crea_un_usuario user.prueba prueba User Prueba Cambiame123.
+
+ = 03_2_Crea_usuarios =
+Este script crea usuarios de manera automática y establece permisos en su carpeta personal.
+Recoge los datos del archivo "usuarios.csv"
+Los administradores se deben de añadir a mano al grupo "Administradores" y sacarlos del grupo al que hayan sido añadidos.
